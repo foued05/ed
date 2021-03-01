@@ -1,0 +1,28 @@
+<div class="col-md-8 offset-md-3">
+    <h3> Ajout carburant </h3>
+    <form (ngSubmit)="onSubmit()">
+        <div>
+            <label for="Libelle">Libelle</label>
+            <input type="text" class="form-control" id="Libelle"
+            [(ngModel)] = "carburant.libelle" placeholder="Libelle" name="Libelle" >
+        </div>
+        <div>
+            <label for="Prix">Prix</label>
+            <input type="text" class="form-control" id="Prix"
+            [(ngModel)] = "carburant.prix" placeholder="Prix" name="Prix">
+        </div>
+        <div>
+            <label for="QTE"> QTE </label>
+            <input type="text" class="form-control" id="QTE"
+            [(ngModel)] = "carburant.qte" placeholder="QTE" name="QTE">
+        </div>
+        <div>
+            <label for="Type"> Type </label>
+            <input type="text" class="form-control" id="Type"
+            [(ngModel)] = "carburant.type" placeholder=" Type" name="Type">
+        </div>
+        
+        <br>
+    <button class="btn btn-danger" type="submit">Register</button>
+    </form>
+    </div>

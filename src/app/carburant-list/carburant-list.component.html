@@ -1,0 +1,30 @@
+
+<h2>Carburant list</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Libelle</th>
+            <th>prix</th>
+            <th>QTE</th>
+            <th>type</th>
+        </tr>
+    </thead>
+
+        <tbody>
+            <tr *ngFor = "let carburant of carburants">
+                <td>{{carburant.libelle}}</td>
+                <td>{{carburant.prix}} </td>
+                <td>{{carburant.qte}} </td>
+                <td>{{carburant.type}} </td>
+                <td *ngIf="permissionUpdateCarburant()">
+                    <button (click)="updateCarburant(carburant.idFuel)" class="btn btn-info">Update</button>
+                </td>  
+                <td *ngIf="permissionDeleteCarburant()">
+                    <button (click)="deleteCarburant(carburant.idFuel)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+                </td>          
+            </tr>
+            
+                <button type="submit" class="btn btn-danger" (click)="deconnexion()">Log out</button>
+            
+        </tbody>
+</table>

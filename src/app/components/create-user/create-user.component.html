@@ -1,0 +1,106 @@
+<div class="col-md-8 offset-md-3">
+<h3> Register </h3>
+<form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="First Name">First Name</label>
+        <input type="text" class="form-control" id="firstName"
+        [(ngModel)] = "user.firstName" [(ngModel)] = "userAdmin.firstName" placeholder="First Name" name="firstName" >
+    </div>
+    <div>
+        <label for="Last Name">Last Name</label>
+        <input type="text" class="form-control" id="lastName"
+        [(ngModel)] = "user.lastName" [(ngModel)] = "userAdmin.lastName" placeholder="Last Name" name="lastName">
+    </div>
+    <div>
+        <label for="CIN"> CIN </label>
+        <input type="text" class="form-control" id="cin"
+        [(ngModel)] = "user.cin" [(ngModel)] = "userAdmin.cin" placeholder="CIN" name="cin">
+    </div>
+    <div>
+        <label for="Email"> Email </label>
+        <input type="text" class="form-control" id="emailId"
+        [(ngModel)] = "user.emailId" [(ngModel)] = "userAdmin.emailId" placeholder=" Email" name="emailId">
+    </div>
+    <div>
+        <label for="Password"> Password </label>
+        <input type="password" class="form-control" id="password"
+        [(ngModel)] = "user.password" [(ngModel)] = "userAdmin.password" placeholder=" Password" name="password">
+    </div>
+    <div>
+        <label for="Address"> Address </label>
+        <input type="text" class="form-control" id="address"
+        [(ngModel)] = "user.address" [(ngModel)] = "userAdmin.address" placeholder=" Address" name="address">
+    </div>
+    <div>
+        <label for="Ville"> Ville </label>
+        <input type="text" class="form-control" id="ville"
+        [(ngModel)] = "user.ville" [(ngModel)] = "userAdmin.ville" placeholder="Ville" name="ville">
+    </div>
+    <div>
+        <label for="Code Postal"> Code Postal </label>
+        <input type="text" class="form-control" id="code_postal"
+        [(ngModel)] = "user.codePostal" [(ngModel)] = "userAdmin.codePostal" placeholder="Code postal" name="code_postal">
+    </div>
+    <div>
+        <label for="Role">Role</label>
+        <select name="role" id="role" [(ngModel)] = "roleSelect">
+            <option *ngFor = "let role of roles" value="{{role.id}}/{{role.libelle}}/">{{role.libelle}}</option>
+        </select>
+    </div>
+    <div *ngIf="focusPermissionChef()">
+        <div>
+            <label for="Name Company"> Name Company </label>
+            <input type="text" class="form-control" id="company"
+            [(ngModel)] = "companyCreate.name" placeholder="Name Company" name="company">
+        </div>
+        <div>
+            <label for="Address Company"> Address Company </label>
+            <input type="text" class="form-control" id="company"
+            [(ngModel)] = "companyCreate.address" placeholder="Address Company" name="company">
+        </div>
+        <div>
+            <label for="City Company"> City Company </label>
+            <input type="text" class="form-control" id="company"
+            [(ngModel)] = "companyCreate.city" placeholder="City Company" name="company">
+        </div>
+        <div>
+            <label for="Code Postal company"> Code Postal company </label>
+            <input type="text" class="form-control" id="Code Postal company"
+            [(ngModel)] = "companyCreate.postalCode" placeholder="Code Postal company" name="Code Postal company">
+        </div>
+    </div>
+    <div *ngIf="focusPermissionEmployee()">
+        <div *ngIf="focusSelectEmployee()">
+            <label for="Code Postal"> Company </label>
+            <select name="company" id="company" [(ngModel)] = "companySelect">
+                <option *ngFor = "let company of companies" value="{{company.idCompany}}/{{company.name}}/{{company.address}}/{{company.city}}/{{company.postalCode}}/">{{company.name}}</option>
+            </select>
+        </div>
+        <tr>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "carburant[0]"><label for="ajouter carburant"> ajouter carburant</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "carburant[1]"><label for="modifier carburant"> modifier carburant</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "carburant[2]"><label for="supprimer carburant"> supprimer carburant</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "carburant[3]"><label for="lister carburant"> lister carburant</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "carburant[4]"><label for="rechercher carburant"> rechercher carburant</label></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "vehicule[0]"><label for="ajouter vehicule"> ajouter vehicule</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "vehicule[1]"><label for="modifier vehicule"> modifier vehicule</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "vehicule[2]"><label for="supprimer vehicule"> supprimer vehicule</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "vehicule[3]"><label for="lister vehicule"> lister vehicule</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "vehicule[4]"><label for="rechercher vehicule"> rechercher vehicule</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "vehicule[5]"><label for="affecter vehicule"> affecter vehicule</label></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "conducteur[0]"><label for="ajouter conducteur"> ajouter conducteur</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "conducteur[1]"><label for="modifier conducteur"> modifier conducteur</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "conducteur[2]"><label for="supprimer conducteur"> supprimer conducteur</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "conducteur[3]"><label for="lister conducteur"> lister conducteur</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "conducteur[4]"><label for="rechercher conducteur"> rechercher conducteur</label></td>
+            <td><input type="checkbox" name="check" id="check" [(ngModel)] = "conducteur[5]"><label for="affecter conducteur"> affecter conducteur</label></td>
+        </tr>
+    </div>
+    <br>
+<button class="btn btn-danger" type="submit">Register</button>
+</form>
+</div>

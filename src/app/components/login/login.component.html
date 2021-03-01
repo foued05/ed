@@ -1,0 +1,17 @@
+<div class="col-md-8 offset-md-3">
+    <h3> Log in </h3>
+    <form (ngSubmit)="onSubmit()">
+        <div>
+            <label for="Email"> Email </label>
+            <input type="text" class="form-control" id="emailId"
+            [(ngModel)] = "user.emailId" placeholder=" Email" name="emailId">
+        </div>
+        <div>
+            <label for="Password"> Password </label>
+            <input type="password" class="form-control" id="password"
+            [(ngModel)] = "user.password" placeholder=" Password" name="password">
+        </div>
+        <br>
+    <button class="btn btn-danger" type="submit">Log in</button>
+    </form>
+    </div>

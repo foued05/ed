@@ -1,0 +1,22 @@
+<div class="col-md-8 offset-md-3">
+    <h3> Ajout vehicule </h3>
+    <form (ngSubmit)="onSubmit()">
+        <div>
+            <label for="Matricule">Matricule</label>
+            <input type="text" class="form-control" id="Matricule"
+            [(ngModel)] = "vehicule.mat" placeholder="Matricule" name="Matricule" >
+        </div>
+        <div>
+            <label for="Mark">Mark</label>
+            <input type="text" class="form-control" id="Mark"
+            [(ngModel)] = "vehicule.mark" placeholder="Mark" name="Mark">
+        </div>
+        <div>
+            <label for="Type"> Type </label>
+            <input type="text" class="form-control" id="Type"
+            [(ngModel)] = "vehicule.type" placeholder="Type" name="Type">
+        </div>
+        <br>
+    <button class="btn btn-danger" type="submit">Register</button>
+    </form>
+    </div>

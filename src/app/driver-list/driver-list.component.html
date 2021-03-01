@@ -1,0 +1,40 @@
+
+<h2>Conducteur liste</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>prenom</th>
+            <th>nom</th>
+            <th>CIN</th>
+            <th>num permis</th>
+            <th>email</th>
+            <th>address</th>
+            <th>ville</th>
+            <th>code postal</th>
+            <th>sexe</th>
+        </tr>
+    </thead>
+
+        <tbody>
+            <tr *ngFor = "let driver of drivers">
+                <td>{{driver.firstName}}</td>
+                <td>{{driver.lastName}} </td>
+                <td>{{driver.cin}} </td>
+                <td>{{driver.numPermis}} </td>
+                <td>{{driver.email}} </td>
+                <td>{{driver.address}} </td>
+                <td>{{driver.ville}} </td>
+                <td>{{driver.codePostal}} </td>
+                <td>{{driver.sexe}} </td>
+                <td *ngIf="permissionUpdateConducteur()">
+                    <button (click)="updateDriver(driver.id)" class="btn btn-info">Update</button>
+                </td>  
+                <td *ngIf="permissionDeleteConducteur()">
+                    <button (click)="deleteDriver(driver.id)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+                </td>          
+            </tr>
+            
+                <button type="submit" class="btn btn-danger" (click)="deconnexion()">Log out</button>
+            
+        </tbody>
+</table>

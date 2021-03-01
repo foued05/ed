@@ -1,0 +1,28 @@
+
+<h2>Vehicule list</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Matricule</th>
+            <th>Marque</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+
+        <tbody>
+            <tr *ngFor = "let vehicule of vehicules">
+                <td>{{vehicule.mat}}</td>
+                <td>{{vehicule.mark}} </td>
+                <td>{{vehicule.type}} </td>
+                <td *ngIf="permissionUpdateVehicule()">
+                    <button (click)="updateVehicule(vehicule.id)" class="btn btn-info">Update</button>
+                </td>  
+                <td *ngIf="permissionDeleteVehicule()">
+                    <button (click)="deleteVehicule(vehicule.id)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+                </td>          
+            </tr>
+            
+                <button type="submit" class="btn btn-danger" (click)="deconnexion()">Log out</button>
+            
+        </tbody>
+</table>

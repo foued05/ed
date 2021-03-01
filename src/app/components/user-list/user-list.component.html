@@ -1,0 +1,63 @@
+
+<h2>User list</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>cin</th>
+            <th>address</th>
+            <th>ville</th>
+            <th>Role</th>
+            <th>Company</th>
+            <th>Permission Gerer Carburant</th>
+            <th>Permission Gerer Vehicule</th>
+            <th>Permission Gerer Conducteur</th>
+        </tr>
+    </thead>
+
+        <tbody>
+            <tr *ngFor = "let userAdmin of usersAdmin">
+                <td>{{userAdmin.firstName}}</td>
+                <td>{{userAdmin.lastName}} </td>
+                <td>{{userAdmin.cin}} </td>
+                <td>{{userAdmin.address}} </td>
+                <td>{{userAdmin.ville}} </td>
+                <td>{{userAdmin.role.libelle}} </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button (click)="updateUser(userAdmin.id)" class="btn btn-info">Update</button>
+                </td>  
+                <td>
+                    <button (click)="deleteUser(userAdmin.id)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+                </td>          
+            </tr>
+            <tr *ngFor = "let user of users">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}} </td>
+                <td>{{user.cin}} </td>
+                <td>{{user.address}} </td>
+                <td>{{user.ville}} </td>
+                <td>{{user.role.libelle}} </td>
+                <td>{{user.company.name}} </td>
+                <td *ngIf="user.role.id == 3">{{user.fnCarburant}}</td>
+                <td *ngIf="user.role.id == 3">{{user.fnVehicule}}</td>
+                <td *ngIf="user.role.id == 3">{{user.fnConducteur}}</td>
+                <td *ngIf="user.role.id != 3"></td>
+                <td *ngIf="user.role.id != 3"></td>
+                <td *ngIf="user.role.id != 3"></td>
+                <td>
+                    <button (click)="updateUser(user.id)" class="btn btn-info">Update</button>
+                </td> 
+                <td>
+                    <button (click)="deleteUser(user.id)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+                </td>           
+            </tr>
+            
+                <button type="submit" class="btn btn-danger" (click)="deconnexion()">Log out</button>
+            
+        </tbody>
+</table>
